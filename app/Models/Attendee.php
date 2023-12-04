@@ -11,22 +11,13 @@ class Attendee extends Model
 {
     use HasFactory;
 
-    /**
-     * Add a foreign key in the attendees table to reference the ID in the
-     * users table.
-     * 
-     * @return BelongsTo
-     */
+    protected $fillable = ['user_id'];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    /**
-     * Add a foreign key in the attendees table to reference the ID in the
-     * events table.
-     * 
-     */
     public function event(): BelongsTo
     {
         return $this->belongsTo(Event::class);
